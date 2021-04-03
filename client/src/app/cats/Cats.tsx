@@ -7,7 +7,7 @@ import { LOAD_CATS } from 'providers/GraphQL/Queries';
 import { CatsProps } from './Cats.types';
 import { useStyles } from './Cats.styles';
 
-export const Cats: React.FC<CatsProps> = ({}) => {
+export const Cats: React.FC<CatsProps> = () => {
   const theme = useTheme();
   const classes = useStyles(theme);
 
