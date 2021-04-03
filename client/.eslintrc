@@ -1,5 +1,5 @@
 {
-//  "ignorePatterns": ["plop-templates/**/*.hbs", "src/*.ts"],
+  "ignorePatterns": ["plop-templates/**/*.hbs", "src/*.ts"],
   "extends": [
     "react-app",
     "react-app/jest",
