@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useTheme } from '@material-ui/core';
+import { Typography, useTheme } from '@material-ui/core';
 import { useQuery } from '@apollo/client';
 
 import { LOAD_CATS } from 'providers/GraphQL/Queries';
@@ -14,8 +14,13 @@ export const Cats: React.FC<CatsProps> = () => {
   const { error, data, loading } = useQuery(LOAD_CATS);
 
   useEffect(() => {
-    console.log(data);
+    console.log(error, data, loading);
   }, [data]);
 
-  return <>Cats</>;
+  return (
+    <>
+      <Typography>Cats</Typography>
+      <div>{'www'}</div>
+    </>
+  );
 };
