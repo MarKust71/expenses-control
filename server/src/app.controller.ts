@@ -9,4 +9,9 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
+
+  @Get('mailer')
+  sendEmail(): void {
+    return this.appService.sendEmail();
+  }
 }
