@@ -11,7 +11,10 @@ import { GoogleOauthService } from './google-oauth/google-oauth.service';
 
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({
+      envFilePath: ['.env', '.sendgrid.env'],
+      isGlobal: true,
+    }),
     CatsModule,
     GraphQLModule.forRoot({
       // autoSchemaFile: join(process.cwd(), 'schema/schema.gql'),
