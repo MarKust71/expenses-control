@@ -1,11 +1,13 @@
 import React from 'react';
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { ApolloClient, ApolloProvider, from, HttpLink, InMemoryCache } from '@apollo/client';
 import { ErrorResponse, onError } from '@apollo/client/link/error';
-import MenuIcon from '@material-ui/icons/Menu';
+import { Route } from 'react-router-dom';
 
-import { Cats } from './cats/Cats';
+import { Root } from '../routing/root/Root';
+
 import { useStyles } from './App.styles';
+import { LoginPage } from './loginPage/LoginPage';
+import { MainPage } from './mainPage/MainPage';
 
 const errorLink = onError(({ graphQLErrors, networkError }: ErrorResponse) => {
   if (graphQLErrors) {
@@ -34,21 +36,14 @@ export const App = (): JSX.Element => {
 
   return (
     <ApolloProvider client={client}>
-      <div className={classes.root}>
-        <AppBar position="static">
-          <Toolbar>
-            <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" className={classes.title}>
-              News
-            </Typography>
-            <Button color="inherit">Login</Button>
-          </Toolbar>
-        </AppBar>
-      </div>
-      <Typography>Learn React</Typography>
-      <Cats />
+      <Root>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/">
+          <MainPage />
+        </Route>
+      </Root>
     </ApolloProvider>
   );
 };
